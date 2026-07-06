@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+@use "sass:math";
+
+@mixin font-size($size, $base: 16) {
+  font-size: $size + px;
+  font-size: math.div($size, $base) + rem;
+}
+
+
+// 基本カラー
+$red-color: #f02c27;
+$green-color: #2fa853;
+$blue-color: #008cff;
+$orange-color: #ff8000;
+$light-gray-color: #f4f4f7;
+$input-border-color: #afafaf;
+$input-hover-border-color: #999;
+
+
+// 画面サイズ定義 --------------------------------
+$allWidth: 1280; // 全体サイズ
+$contentsWidth: 1140;
+$allWidthTb: 1024; // 全体サイズ（タブレット版）
+$allWidthSp: 768; // 全体サイズ（SP版）
+$baseWidth: 428;
+@function vw($pixelsVw) {
+  @return math.div($pixelsVw, $baseWidth) * 100vw;
+}
+
+
+// ブレークポイント --------------------------------
+$break_point_default: 1024;
+$break_point_sp: 768;
+
+//  Responsive
+// ---------------------------------------------------------------
+
+@mixin ResponsiveMinWidth($break: $break_point_default) {
+  @media screen and (min-width: $break+"px") {
+    @content;
+  }
+}
+
+@mixin ResponsiveMaxWidthTb($break: $break_point_default) {
+  @media screen and (max-width: $break+"px") {
+    @content;
+  }
+}
+
+@mixin ResponsiveMaxWidthSp($break: $break_point_sp) {
+  @media screen and (max-width: $break+"px") {
+    @content;
+  }
+}
+
+@mixin resPC() {
+  @include ResponsiveMinWidth() {
+    @content;
+  }
+}
+
+@mixin resTB() {
+  @include ResponsiveMaxWidthTb() {
+    @content;
+  }
+}
+
+@mixin resSP() {
+  @include ResponsiveMaxWidthSp() {
+    @content;
+  }
+}
+
+@mixin ResponsiveForLargePC($break: 1500) {
+  @media screen and (min-width: $break+"px") {
+    @content;
+  }
+}

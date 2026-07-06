@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind CSS Reference</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body class="bg-slate-50 font-sans text-slate-900 antialiased">
+    <main class="mx-auto max-w-6xl px-4 py-8 md:px-8 md:py-12">
+      <header class="mb-10 border-b border-slate-200 pb-6">
+        <p class="mb-2 text-sm font-bold uppercase tracking-wide text-slate-500">Tailwind CSS Reference</p>
+        <h1 class="text-3xl font-bold leading-tight md:text-5xl">よく使うTailwind class早見表</h1>
+        <p class="mt-4 max-w-3xl text-sm leading-7 text-slate-600 md:text-base">
+          このページは制作中にclassをすぐ確認するためのローカル参照用です。実装では必要なclassだけを各EJSに移してください。
+        </p>
+      </header>
+
+      <section class="mb-10 rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 class="mb-4 text-xl font-bold">Responsive</h2>
+        <p class="mb-4 text-sm leading-7 text-slate-600">
+          Tailwindはmobile firstです。通常classがSP基準、`md:`や`lg:`を付けたclassが指定幅以上で上書きされます。
+        </p>
+        <div class="grid gap-3 text-sm md:grid-cols-2">
+          <div class="rounded bg-slate-100 p-3"><code>block md:flex</code><p class="mt-2 text-slate-600">SPではblock、768px以上ではflexに変更。</p></div>
+          <div class="rounded bg-slate-100 p-3"><code>grid grid-cols-2 md:grid-cols-4</code><p class="mt-2 text-slate-600">SPは2カラム、768px以上では4カラム。</p></div>
+          <div class="rounded bg-slate-100 p-3"><code>px-4 md:px-8 lg:px-10</code><p class="mt-2 text-slate-600">左右余白を画面幅に応じて段階的に広げる。</p></div>
+          <div class="rounded bg-slate-100 p-3"><code>text-sm md:text-base lg:text-lg</code><p class="mt-2 text-slate-600">文字サイズをSP、タブレット、PCで切り替える。</p></div>
+        </div>
+      </section>
+
+      <section class="mb-10 rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 class="mb-4 text-xl font-bold">Layout</h2>
+        <p class="mb-4 text-sm leading-7 text-slate-600">
+          要素の並び、中央寄せ、グリッド、絶対配置など、レイアウトの骨格を作るclassです。
+        </p>
+        <div class="grid gap-6 md:grid-cols-2">
+          <div>
+            <h3 class="mb-3 font-bold">Container</h3>
+            <div class="mx-auto max-w-4xl rounded bg-slate-100 p-4 text-center text-sm">mx-auto max-w-4xl px-4</div>
+            <p class="mt-2 text-sm leading-6 text-slate-600">`mx-auto`で中央寄せ、`max-w-*`で最大幅を制限します。</p>
+          </div>
+          <div>
+            <h3 class="mb-3 font-bold">Flex</h3>
+            <div class="flex items-center justify-between gap-3 rounded bg-slate-100 p-4 text-sm">
+              <span class="rounded bg-white px-3 py-2">items-center</span>
+              <span class="rounded bg-white px-3 py-2">justify-between</span>
+            </div>
+            <p class="mt-2 text-sm leading-6 text-slate-600">横並びの配置に使います。ヘッダーやボタン列に向いています。</p>
+          </div>
+          <div>
+            <h3 class="mb-3 font-bold">Grid</h3>
+            <div class="grid grid-cols-2 gap-3 rounded bg-slate-100 p-4 md:grid-cols-4">
+              <span class="rounded bg-white p-3 text-center text-sm">1</span>
+              <span class="rounded bg-white p-3 text-center text-sm">2</span>
+              <span class="rounded bg-white p-3 text-center text-sm">3</span>
+              <span class="rounded bg-white p-3 text-center text-sm">4</span>
+            </div>
+            <p class="mt-2 text-sm leading-6 text-slate-600">商品一覧など、カラム数を決めて整列させる時に使います。</p>
+          </div>
+          <div>
+            <h3 class="mb-3 font-bold">Position</h3>
+            <div class="relative h-24 rounded bg-slate-100 p-4">
+              <span class="absolute right-3 top-3 rounded bg-slate-900 px-3 py-1 text-xs text-white">absolute right-3 top-3</span>
+            </div>
+            <p class="mt-2 text-sm leading-6 text-slate-600">親に`relative`、子に`absolute`を付けて位置を固定します。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-10 rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 class="mb-4 text-xl font-bold">Spacing</h2>
+        <p class="mb-4 text-sm leading-7 text-slate-600">
+          `p`はpadding、`m`はmarginです。`t/r/b/l`は方向、`x/y`は左右・上下を表します。例: `mt-4`はmargin-top、`px-4`は左右padding。
+        </p>
+        <div class="grid gap-4 md:grid-cols-3">
+          <div class="rounded bg-slate-100 p-2">
+            <div class="bg-white p-2 text-sm">p-2</div>
+          </div>
+          <div class="rounded bg-slate-100 p-4">
+            <div class="bg-white p-2 text-sm">p-4</div>
+          </div>
+          <div class="rounded bg-slate-100 p-8">
+            <div class="bg-white p-2 text-sm">p-8</div>
+          </div>
+        </div>
+        <div class="mt-4 grid gap-3 text-sm md:grid-cols-4">
+          <div class="rounded bg-slate-100 p-3"><code>mt-4 mb-8</code><p class="mt-2 text-slate-600">上余白と下余白を個別指定。</p></div>
+          <div class="rounded bg-slate-100 p-3"><code>px-4 py-6</code><p class="mt-2 text-slate-600">左右と上下の内側余白を指定。</p></div>
+          <div class="rounded bg-slate-100 p-3"><code>gap-4 md:gap-6</code><p class="mt-2 text-slate-600">grid/flex内の要素間隔を指定。</p></div>
+          <div class="rounded bg-slate-100 p-3"><code>space-y-4</code><p class="mt-2 text-slate-600">縦に並ぶ兄弟要素の間隔を指定。</p></div>
+        </div>
+      </section>
+
+      <section class="mb-10 rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 class="mb-4 text-xl font-bold">Typography</h2>
+        <p class="mb-4 text-sm leading-7 text-slate-600">
+          文字サイズ、太さ、行間、フォントファミリーを指定します。見出しは`font-bold`と`leading-tight`、本文は`leading-7`などを使うと読みやすいです。
+        </p>
+        <div class="space-y-4">
+          <div><p class="text-xs text-slate-500">text-xs text-slate-500</p><p class="text-sm text-slate-500">補足や小さいラベル向け。</p></div>
+          <div><p class="text-sm leading-6 text-slate-600">text-sm leading-6 text-slate-600</p><p class="text-sm text-slate-500">小さめ本文。`leading-6`で行間を確保。</p></div>
+          <div><p class="text-base font-bold leading-7">text-base font-bold leading-7</p><p class="text-sm text-slate-500">通常サイズの強調テキスト。</p></div>
+          <div><p class="text-2xl font-bold leading-tight md:text-4xl">text-2xl md:text-4xl font-bold leading-tight</p><p class="text-sm text-slate-500">レスポンシブな見出し。</p></div>
+          <div><p class="font-serif text-xl">font-serif text-xl</p><p class="text-sm text-slate-500">明朝系フォント。和風・高級感の表現向け。</p></div>
+          <div><p class="font-roboto text-xl font-bold">font-roboto text-xl font-bold</p><p class="text-sm text-slate-500">英数字や価格表示向け。</p></div>
+        </div>
+      </section>
+
+      <section class="mb-10 rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 class="mb-4 text-xl font-bold">Color</h2>
+        <p class="mb-4 text-sm leading-7 text-slate-600">
+          `bg-*`は背景色、`text-*`は文字色、`border-*`は線色です。`/90`のような指定は透明度を表します。
+        </p>
+        <div class="grid gap-3 md:grid-cols-4">
+          <div class="rounded bg-black p-4 text-sm text-white">bg-black text-white</div>
+          <div class="rounded bg-pickup-bg p-4 text-sm">bg-pickup-bg</div>
+          <div class="rounded bg-category-loop p-4 text-sm text-white">bg-category-loop</div>
+          <div class="rounded bg-slate-900 p-4 text-sm text-slate-100">bg-slate-900</div>
+        </div>
+        <div class="mt-4 grid gap-3 text-sm md:grid-cols-4">
+          <div class="rounded bg-slate-100 p-3"><code>text-black/90</code><p class="mt-2 text-slate-600">黒の90%不透明。本文向け。</p></div>
+          <div class="rounded bg-slate-100 p-3"><code>text-link-muted</code><p class="mt-2 text-slate-600">設定済みの薄いリンク色。</p></div>
+          <div class="rounded bg-slate-100 p-3"><code>border-slate-200</code><p class="mt-2 text-slate-600">薄いグレーの境界線。</p></div>
+          <div class="rounded bg-slate-100 p-3"><code>bg-white/80</code><p class="mt-2 text-slate-600">白背景の80%不透明。</p></div>
+        </div>
+      </section>
+
+      <section class="mb-10 rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 class="mb-4 text-xl font-bold">Size / Image</h2>
+        <p class="mb-4 text-sm leading-7 text-slate-600">
+          画像は固定pxより`aspect-*`と`object-cover`を優先します。正方形の商品画像は`aspect-square`が基本です。
+        </p>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div>
+            <div class="aspect-square overflow-hidden rounded bg-slate-100">
+              <img src="./assets/img/main-visual.png" alt="" class="h-full w-full object-cover" />
+            </div>
+            <p class="mt-2 text-sm text-slate-600">aspect-square object-cover</p>
+          </div>
+          <div>
+            <div class="aspect-video overflow-hidden rounded bg-slate-100">
+              <img src="./assets/img/main-visual.png" alt="" class="h-full w-full object-cover" />
+            </div>
+            <p class="mt-2 text-sm text-slate-600">aspect-video object-cover</p>
+          </div>
+          <div>
+            <div class="h-32 w-32 overflow-hidden rounded-full bg-slate-100">
+              <img src="./assets/img/header-logo.png" alt="" class="h-full w-full object-contain p-4" />
+            </div>
+            <p class="mt-2 text-sm text-slate-600">h-32 w-32 rounded-full</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-10 rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 class="mb-4 text-xl font-bold">State</h2>
+        <p class="mb-4 text-sm leading-7 text-slate-600">
+          `hover:`、`focus:`、`disabled:`のように状態名をprefixにすると、その状態の時だけstyleが効きます。
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#" class="rounded bg-slate-900 px-5 py-3 text-sm font-bold text-white transition hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400">
+            hover / focus
+          </a>
+          <button class="rounded border border-slate-300 px-5 py-3 text-sm font-bold transition hover:border-slate-900 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40" disabled>
+            disabled
+          </button>
+          <label class="inline-flex items-center gap-2 text-sm">
+            <input type="checkbox" class="h-4 w-4 accent-slate-900" />
+            checked
+          </label>
+        </div>
+      </section>
+
+      <section class="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 class="mb-4 text-xl font-bold">Common Snippets</h2>
+        <p class="mb-4 text-sm leading-7 text-slate-600">
+          この案件でよく使う組み合わせです。セクションや商品カードを作る時の初期値として使えます。
+        </p>
+        <div class="grid gap-3 text-sm">
+          <div class="rounded bg-slate-100 p-3"><code>class="mx-auto max-w-pickup px-sp-section-x md:px-8"</code><p class="mt-2 text-slate-600">中央寄せコンテナ。SPは可変padding、PCは固定padding。</p></div>
+          <div class="rounded bg-slate-100 p-3"><code>class="grid grid-cols-2 gap-sp-gap-md md:grid-cols-4 md:gap-6"</code><p class="mt-2 text-slate-600">商品一覧向け。SP 2カラム、PC 4カラム。</p></div>
+          <div class="rounded bg-slate-100 p-3"><code>class="aspect-square overflow-hidden bg-white"</code><p class="mt-2 text-slate-600">商品画像枠。正方形を維持してはみ出しを隠す。</p></div>
+          <div class="rounded bg-slate-100 p-3"><code>class="transition duration-300 ease-out group-hover:scale-subtle"</code><p class="mt-2 text-slate-600">親hover時に控えめな拡大アニメーション。</p></div>
+          <div class="rounded bg-slate-100 p-3"><code>class="sr-only"</code><p class="mt-2 text-slate-600">画面には出さず、スクリーンリーダーには読ませるテキスト。</p></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
